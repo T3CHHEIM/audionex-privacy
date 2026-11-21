@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AUDIONEX – Testversion</title>
 <meta name="description" content="Testversion der Android-App AUDIONEX herunterladen: Hi-Res-Audio-Player mit Equalizer, Bibliothek und Favoriten.">
+<link rel="icon" href="logo-mark.png" type="image/png">
 <style>
   :root {
     --ink: #05070c;
@@ -19,7 +20,7 @@
   html { scroll-behavior: smooth; }
   body {
     margin: 0;
-    padding: 40px 20px 72px;
+    padding: 34px 20px 64px;
     background:
       radial-gradient(1100px 560px at 15% -10%, #12253c 0%, var(--ink) 62%),
       radial-gradient(900px 500px at 100% 10%, rgba(53,224,255,0.10) 0%, transparent 60%),
@@ -32,18 +33,121 @@
   }
   main { max-width: 900px; margin: 0 auto; }
 
-  header { margin-bottom: 34px; }
-  .brand {
-    font-size: 12px;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: var(--cyan);
-    font-weight: 700;
+  /* ---- Kopfbereich: Logo gross, Wortmarke darunter ---- */
+  .site-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 6px 0 18px;
   }
+  .logo {
+    width: clamp(148px, 33vw, 208px);
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 14px 30px rgba(53, 224, 255, 0.30));
+  }
+  .wordmark {
+    margin: 14px 0 0;
+    padding-left: 0.30em;
+    font-size: clamp(23px, 6.2vw, 36px);
+    font-weight: 800;
+    letter-spacing: 0.30em;
+    text-transform: uppercase;
+    line-height: 1;
+    background: linear-gradient(100deg, #ffffff 6%, #a9defd 48%, var(--cyan) 92%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* ---- Horizontale Navigation unter dem Header ---- */
+  .nav-wrap {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 -20px 20px;
+    padding: 10px 20px;
+    background: linear-gradient(180deg, rgba(5, 7, 12, 0.94), rgba(5, 7, 12, 0.74));
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav {
+    display: flex;
+    flex: 1 1 auto;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav a {
+    flex: 0 0 auto;
+    padding: 9px 16px;
+    border-radius: 999px;
+    text-decoration: none;
+    color: #cfe2f5;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.02));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 8px 18px -14px rgba(0, 0, 0, 0.9);
+    transition: color .16s ease, background .16s ease, border-color .16s ease, box-shadow .16s ease, transform .16s ease;
+  }
+  .nav a:hover {
+    color: #04121b;
+    border-color: transparent;
+    transform: translateY(-1px);
+    background: linear-gradient(180deg, #7ef0ff 0%, var(--cyan) 45%, #17b6dd 100%);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset, 0 12px 26px -12px rgba(53, 224, 255, 0.75);
+  }
+  .nav a:active { transform: translateY(0); }
+
+  /* ---- Sprachumschalter ---- */
+  .lang {
+    flex: 0 0 auto;
+    display: flex;
+    gap: 2px;
+    padding: 3px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  }
+  .lang button {
+    appearance: none;
+    border: 0;
+    cursor: pointer;
+    padding: 5px 11px;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--muted);
+    font: inherit;
+    font-size: 12.5px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    transition: color .15s ease, background .15s ease;
+  }
+  .lang button.active {
+    color: #04121b;
+    background: linear-gradient(180deg, #7ef0ff, #17b6dd);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset;
+  }
+
+  [id] { scroll-margin-top: 82px; }
+
+  .intro { text-align: center; margin-bottom: 6px; }
+  .intro .lead { margin-left: auto; margin-right: auto; }
+
   h1 {
-    font-size: 38px;
-    line-height: 1.1;
-    margin: 10px 0 10px;
+    font-size: clamp(28px, 7.4vw, 38px);
+    line-height: 1.12;
+    margin: 12px 0 10px;
     letter-spacing: -0.8px;
     background: linear-gradient(100deg, #ffffff 10%, #9fd8ff 55%, var(--cyan) 95%);
     -webkit-background-clip: text;
@@ -163,80 +267,150 @@
 </head>
 <body>
 <main>
-  <header>
-    <div class="brand">AUDIONEX</div>
-    <h1>Testversion für dein Handy</h1>
-    <p class="lead">
-      Hi-Res-Audio-Player für Android: Bibliothek nach Ordnern und Titeln, Cover-Ansicht,
-      Equalizer mit Presets, Favoriten und Wiedergabe im Sperrbildschirm.
-    </p>
-    <div class="stand">Version 1.0 · Release-Build vom 20. November 2026</div>
+  <header class="site-header" id="top">
+    <img class="logo" src="logo-mark.png" alt="AUDIONEX Logo" width="560" height="380">
+    <div class="wordmark">AUDIONEX</div>
   </header>
 
-  <div class="panel download">
-    <a class="btn" href="AUDIONEX-1.0-release.apk" download>
-      <span class="ico">▼</span> APK herunterladen
-    </a>
-    <div class="meta">
-      <span><b>16,7 MB</b> · signierter Release-Build</span>
-      <span>Android 8.0 oder neuer</span>
-      <span>kostenlos · ohne Konto · offline</span>
+  <div class="nav-wrap">
+    <nav class="nav" aria-label="Navigation">
+      <a href="#top" data-de="Start" data-en="Home">Start</a>
+      <a href="#download" data-de="Download" data-en="Download">Download</a>
+      <a href="#install" data-de="Installieren" data-en="Install">Installieren</a>
+      <a href="#shots" data-de="Screenshots" data-en="Screenshots">Screenshots</a>
+      <a href="./" data-de="Datenschutz" data-en="Privacy">Datenschutz</a>
+      <a href="#kontakt" data-de="Kontakt" data-en="Contact">Kontakt</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Sprache / Language">
+      <button type="button" data-lang="de" class="active">DE</button>
+      <button type="button" data-lang="en">EN</button>
     </div>
   </div>
 
-  <h2>So installierst du sie</h2>
+  <section class="intro">
+    <h1 data-de="Testversion für dein Handy" data-en="Test build for your phone">Testversion für dein Handy</h1>
+    <p class="lead"
+       data-de="Hi-Res-Audio-Player für Android: Bibliothek nach Ordnern und Titeln, Cover-Ansicht, Equalizer mit Presets, Favoriten und Wiedergabe im Sperrbildschirm."
+       data-en="Hi-res audio player for Android: browse by folders and tracks, cover view, equalizer with presets, favourites and lock-screen playback.">
+      Hi-Res-Audio-Player für Android: Bibliothek nach Ordnern und Titeln, Cover-Ansicht,
+      Equalizer mit Presets, Favoriten und Wiedergabe im Sperrbildschirm.
+    </p>
+    <div class="stand"
+         data-de="Version 1.0 · Release-Build vom 20. November 2026"
+         data-en="Version 1.0 · release build of 20 November 2026">
+      Version 1.0 · Release-Build vom 20. November 2026
+    </div>
+  </section>
+
+  <div class="panel download" id="download">
+    <a class="btn" href="AUDIONEX-1.0-release.apk" download>
+      <span class="ico">▼</span>
+      <span data-de="APK herunterladen" data-en="Download APK">APK herunterladen</span>
+    </a>
+    <div class="meta">
+      <span data-de="<b>16,7 MB</b> · signierter Release-Build" data-en="<b>16.7 MB</b> · signed release build"><b>16,7 MB</b> · signierter Release-Build</span>
+      <span data-de="Android 8.0 oder neuer" data-en="Android 8.0 or newer">Android 8.0 oder neuer</span>
+      <span data-de="kostenlos · ohne Konto · offline" data-en="free · no account · offline">kostenlos · ohne Konto · offline</span>
+    </div>
+  </div>
+
+  <h2 id="install" data-de="So installierst du sie" data-en="How to install">So installierst du sie</h2>
   <ol>
-    <li>Auf dieser Seite den Button <strong>APK herunterladen</strong> antippen – der Download
-      landet in deinem Ordner „Downloads".</li>
-    <li>Die Datei in der Benachrichtigungsleiste oder in der Dateien-App antippen.</li>
-    <li>Android fragt, ob die App aus dieser Quelle installiert werden darf →
-      <strong>„Zulassen"</strong> bzw. „Einstellungen" → Schalter aktivieren → zurück → <strong>„Installieren"</strong>.</li>
-    <li>Beim ersten Start fragt Android nach Zugriff auf <strong>Musik und Audio</strong> –
-      ohne diese Freigabe bleibt die Bibliothek leer.</li>
+    <li data-de="Auf dieser Seite den Button <strong>APK herunterladen</strong> antippen – der Download landet in deinem Ordner „Downloads“." data-en="Tap <strong>Download APK</strong> on this page – the file lands in your Downloads folder.">
+      Auf dieser Seite den Button <strong>APK herunterladen</strong> antippen – der Download
+      landet in deinem Ordner „Downloads“.
+    </li>
+    <li data-de="Die Datei in der Benachrichtigungsleiste oder in der Dateien-App antippen." data-en="Tap the file in the notification shade or in your file manager.">
+      Die Datei in der Benachrichtigungsleiste oder in der Dateien-App antippen.
+    </li>
+    <li data-de="Android fragt, ob die App aus dieser Quelle installiert werden darf → <strong>„Zulassen“</strong> bzw. „Einstellungen“ → Schalter aktivieren → zurück → <strong>„Installieren“</strong>." data-en="Android asks whether this source may install apps → <strong>Allow</strong> (or Settings → enable the switch) → back → <strong>Install</strong>.">
+      Android fragt, ob die App aus dieser Quelle installiert werden darf →
+      <strong>„Zulassen“</strong> bzw. „Einstellungen“ → Schalter aktivieren → zurück →
+      <strong>„Installieren“</strong>.
+    </li>
+    <li data-de="Beim ersten Start fragt Android nach Zugriff auf <strong>Musik und Audio</strong> – ohne diese Freigabe bleibt die Bibliothek leer." data-en="On first launch Android asks for access to <strong>Music and audio</strong> – without it the library stays empty.">
+      Beim ersten Start fragt Android nach Zugriff auf <strong>Musik und Audio</strong> –
+      ohne diese Freigabe bleibt die Bibliothek leer.
+    </li>
   </ol>
 
-  <div class="warn">
+  <div class="warn"
+       data-de="Diese Datei stammt nicht aus dem Play Store. Möglicherweise zeigt Android deshalb beim Installieren einen Hinweis auf eine „unbekannte Quelle“ – das ist bei einer Testversion normal und kein Fehler. Die App benötigt keine Konten, keine Anmeldung und kein Internet."
+       data-en="This file does not come from the Play Store, so Android may warn about an “unknown source” during installation. That is normal for a test build and not an error. The app needs no accounts, no sign-in and no internet.">
     Diese Datei stammt nicht aus dem Play Store. Möglicherweise zeigt Android deshalb beim
     Installieren einen Hinweis auf eine „unbekannte Quelle“ – das ist bei einer Testversion
     normal und kein Fehler. Die App benötigt keine Konten, keine Anmeldung und kein Internet.
   </div>
 
-  <h2>Ein Blick in die App</h2>
+  <h2 id="shots" data-de="Ein Blick in die App" data-en="A look inside the app">Ein Blick in die App</h2>
   <div class="gallery">
     <figure>
-      <a class="shot" href="shot-01-player.png"><img src="shot-01-player.png" alt="Player-Ansicht mit Cover, Spektrum und Wiedergabetasten" loading="lazy"></a>
-      <figcaption>Player</figcaption>
+      <a class="shot" href="shot-01-player.png"><img src="shot-01-player.png" alt="AUDIONEX player screen" loading="lazy"></a>
+      <figcaption data-de="Player" data-en="Player">Player</figcaption>
     </figure>
     <figure>
-      <a class="shot" href="shot-02-bibliothek.png"><img src="shot-02-bibliothek.png" alt="Bibliothek mit Ordnern, Titeln, Alben und Favoriten" loading="lazy"></a>
-      <figcaption>Bibliothek</figcaption>
+      <a class="shot" href="shot-02-bibliothek.png"><img src="shot-02-bibliothek.png" alt="AUDIONEX library" loading="lazy"></a>
+      <figcaption data-de="Bibliothek" data-en="Library">Bibliothek</figcaption>
     </figure>
     <figure>
-      <a class="shot" href="shot-03-titel.png"><img src="shot-03-titel.png" alt="Titel-Liste mit Cover und Suche" loading="lazy"></a>
-      <figcaption>Titel</figcaption>
+      <a class="shot" href="shot-03-titel.png"><img src="shot-03-titel.png" alt="AUDIONEX track list" loading="lazy"></a>
+      <figcaption data-de="Titel" data-en="Tracks">Titel</figcaption>
     </figure>
     <figure>
-      <a class="shot" href="shot-04-equalizer.png"><img src="shot-04-equalizer.png" alt="Equalizer mit Frequenzbändern und Presets" loading="lazy"></a>
-      <figcaption>Equalizer</figcaption>
+      <a class="shot" href="shot-04-equalizer.png"><img src="shot-04-equalizer.png" alt="AUDIONEX equalizer" loading="lazy"></a>
+      <figcaption data-de="Equalizer" data-en="Equalizer">Equalizer</figcaption>
     </figure>
     <figure>
-      <a class="shot" href="shot-05-einstellungen.png"><img src="shot-05-einstellungen.png" alt="Einstellungen mit Sprache, Bluetooth und Datenschutz" loading="lazy"></a>
-      <figcaption>Einstellungen</figcaption>
+      <a class="shot" href="shot-05-einstellungen.png"><img src="shot-05-einstellungen.png" alt="AUDIONEX settings" loading="lazy"></a>
+      <figcaption data-de="Einstellungen" data-en="Settings">Einstellungen</figcaption>
     </figure>
   </div>
 
-  <h2>Feedback</h2>
-  <p class="lead">
+  <h2 id="kontakt" data-de="Feedback" data-en="Feedback">Feedback</h2>
+  <p class="lead feedback"
+     data-de="Fehler, Wünsche oder etwas, das unrund läuft? Schreib an <a href='mailto:t3chheim@outlook.de'>t3chheim@outlook.de</a> – am hilfreichsten mit Handymodell, Android-Version und einem Satz, was du gerade gemacht hast."
+     data-en="Bugs, wishes or anything that feels off? Write to <a href='mailto:t3chheim@outlook.de'>t3chheim@outlook.de</a> – most helpful with your phone model, Android version and one sentence about what you were doing.">
     Fehler, Wünsche oder etwas, das unrund läuft? Schreib an
     <a href="mailto:t3chheim@outlook.de">t3chheim@outlook.de</a> – am hilfreichsten mit
     Handymodell, Android-Version und einem Satz, was du gerade gemacht hast.
   </p>
 
   <footer>
-    <span>AUDIONEX · Testversion 1.0</span>
-    <a href="./">Datenschutzerklärung</a>
-    <a href="mailto:t3chheim@outlook.de">Kontakt</a>
+    <span data-de="AUDIONEX · Testversion 1.0" data-en="AUDIONEX · test build 1.0">AUDIONEX · Testversion 1.0</span>
+    <a href="./" data-de="Datenschutzerklärung" data-en="Privacy policy">Datenschutzerklärung</a>
+    <a href="mailto:t3chheim@outlook.de" data-de="Kontakt" data-en="Contact">Kontakt</a>
   </footer>
 </main>
+
+<script>
+  (function () {
+    var KEY = "audionex-lang";
+    var titles = { de: "AUDIONEX – Testversion", en: "AUDIONEX – Test build" };
+    var buttons = Array.prototype.slice.call(document.querySelectorAll(".lang button"));
+
+    function apply(lang) {
+      if (lang !== "de" && lang !== "en") lang = "de";
+      document.documentElement.lang = lang;
+      document.title = titles[lang];
+      document.querySelectorAll("[data-de]").forEach(function (el) {
+        var value = el.getAttribute("data-" + lang);
+        if (value !== null) el.innerHTML = value;
+      });
+      buttons.forEach(function (b) {
+        b.classList.toggle("active", b.getAttribute("data-lang") === lang);
+      });
+      try { localStorage.setItem(KEY, lang); } catch (e) {}
+    }
+
+    var stored = null;
+    try { stored = localStorage.getItem(KEY); } catch (e) {}
+    var device = (navigator.language || "de").toLowerCase();
+    apply(stored || (device.indexOf("de") === 0 ? "de" : "en"));
+
+    buttons.forEach(function (b) {
+      b.addEventListener("click", function () { apply(b.getAttribute("data-lang")); });
+    });
+  })();
+</script>
 </body>
 </html>
