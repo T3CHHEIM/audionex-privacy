@@ -1,227 +1,103 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" data-title-de="AUDIONEX – Hi-Res-Player für Android" data-title-en="AUDIONEX – hi-res player for Android">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Datenschutzerklärung – AUDIONEX</title>
-<style>
-  :root {
-    --ink: #05070c;
-    --card: #0e1727;
-    --line: rgba(255,255,255,0.12);
-    --ice: #eaf2fb;
-    --muted: #9fb0c6;
-    --blue: #2e9bff;
-    --cyan: #35e0ff;
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    padding: 40px 20px 72px;
-    background: radial-gradient(1200px 600px at 20% -10%, #12253c 0%, var(--ink) 60%);
-    color: var(--ice);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-    line-height: 1.65;
-    font-size: 16px;
-  }
-  main { max-width: 760px; margin: 0 auto; }
-  header { margin-bottom: 32px; }
-  .brand {
-    font-size: 12px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--cyan);
-    font-weight: 700;
-  }
-  h1 { font-size: 30px; line-height: 1.25; margin: 8px 0 6px; letter-spacing: -0.5px; }
-  .stand { color: var(--muted); font-size: 14px; }
-  h2 {
-    font-size: 19px;
-    margin: 34px 0 10px;
-    padding-top: 22px;
-    border-top: 1px solid var(--line);
-  }
-  p, li { color: #dbe6f4; }
-  ul { padding-left: 20px; }
-  li { margin: 6px 0; }
-  .box {
-    background: rgba(255,255,255,0.045);
-    border: 1px solid var(--line);
-    border-radius: 16px;
-    padding: 18px 20px;
-    margin: 18px 0;
-  }
-  .box strong { color: #fff; }
-  .placeholder { color: #ffd479; }
-  a { color: var(--blue); }
-  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 15px; }
-  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
-  th { color: var(--muted); font-weight: 600; }
-  footer { margin-top: 44px; color: var(--muted); font-size: 13px; }
-  .en { margin-top: 44px; }
-  .en p, .en li { color: var(--muted); }
-  @media print {
-    body { background: #fff; color: #111; }
-    p, li, th, td { color: #111; }
-    .box { background: #f4f6f9; }
-    a { color: #0b57d0; }
-  }
-</style>
+<title>AUDIONEX – Hi-Res-Player für Android</title>
+<meta name="description" content="AUDIONEX: Hi-Res-Audio-Player für Android mit Bibliothek, Equalizer, Favoriten und Wiedergabe im Sperrbildschirm.">
+<link rel="icon" href="logo-mark.png" type="image/png">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <main>
-  <header>
-    <div class="brand">AUDIONEX</div>
-    <h1>Datenschutzerklärung</h1>
-    <div class="stand">Stand: 21. November 2026 · gilt für die Android-App „AUDIONEX"</div>
+  <header class="site-header">
+    <a href="index.html"><img class="logo" src="logo-mark.png" alt="AUDIONEX Logo" width="560" height="380"></a>
+    <a href="index.html" class="wordmark">AUDIONEX</a>
   </header>
 
-  <div class="box">
-    <strong>Das Wichtigste in Kürze:</strong> AUDIONEX spielt Musik ab, die auf deinem Gerät liegt.
-    Deine Musikdateien, Favoriten, Playlists und Einstellungen verlassen das Gerät nicht.
-    Es gibt kein Konto und keine Anmeldung. Eine anonyme Nutzungsstatistik wird nur gesendet,
-    wenn du beim ersten Start ausdrücklich zustimmst – lehnst du ab, werden keine Daten übertragen.
+  <div class="nav-wrap">
+    <nav class="nav" aria-label="Navigation">
+      <a href="index.html" aria-current="page" data-de="Start" data-en="Home">Start</a>
+      <a href="download.html" data-de="Download" data-en="Download">Download</a>
+      <a href="installieren.html" data-de="Installieren" data-en="Install">Installieren</a>
+      <a href="screenshots.html" data-de="Screenshots" data-en="Screenshots">Screenshots</a>
+      <a href="datenschutz.html" data-de="Datenschutz" data-en="Privacy">Datenschutz</a>
+      <a href="kontakt.html" data-de="Kontakt" data-en="Contact">Kontakt</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Sprache / Language">
+      <button type="button" data-lang="de" class="active">DE</button>
+      <button type="button" data-lang="en">EN</button>
+    </div>
   </div>
 
-  <h2>1. Verantwortlicher</h2>
-  <p>
-    Verantwortlich für die Datenverarbeitung in dieser App ist:<br>
-    T3CHHEIM (Einzelentwickler)<br>
-    E-Mail: t3chheim@outlook.de<br>
-    Kontakt für alle Fragen zu dieser Erklärung und zu deinen Rechten ist diese
-    E-Mail-Adresse.
-  </p>
-
-  <h2>2. Welche Daten auf deinem Gerät bleiben</h2>
-  <p>
-    AUDIONEX liest die Audiodateien, die du zum Abspielen auswählst, sowie die dazugehörigen
-    Metadaten (Titel, Künstler, Album, Genre, Cover). Favoriten, Playlists, Ordnermarkierungen,
-    Equalizer-Kurven und Einstellungen werden ausschließlich lokal auf deinem Gerät gespeichert.
-    Diese Daten werden nicht an uns oder an Dritte übertragen und können jederzeit durch Löschen
-    der App entfernt werden.
-  </p>
-
-  <h2>3. Berechtigungen und ihre Verwendung</h2>
-  <table>
-    <tr><th>Berechtigung</th><th>Wofür</th></tr>
-    <tr>
-      <td>Audiodateien lesen (Android 13+: „Musik und Audio", davor: Speicher)</td>
-      <td>Damit die App deine lokale Musiksammlung anzeigen und abspielen kann.</td>
-    </tr>
-    <tr>
-      <td>Benachrichtigungen</td>
-      <td>Für die Medien-Benachrichtigung mit den Wiedergabetasten auf dem Sperrbildschirm.</td>
-    </tr>
-    <tr>
-      <td>Vordergrunddienst für Medienwiedergabe</td>
-      <td>Damit die Musik weiterläuft, wenn die App im Hintergrund oder das Display aus ist.</td>
-    </tr>
-    <tr>
-      <td>Bluetooth verbinden</td>
-      <td>Nur wenn du in der App eine Bluetooth-Ausgabe auswählst. Bluetooth wird nicht automatisch aktiviert.</td>
-    </tr>
-    <tr>
-      <td>Internet</td>
-      <td>Ausschließlich für die optionale Nutzungsstatistik nach deiner Zustimmung.</td>
-    </tr>
-  </table>
-  <p>
-    Standort, Kontakte, Kamera, Mikrofon, Telefon oder Fotos werden nicht angefragt und nicht genutzt.
-  </p>
-
-  <h2>4. Optionale Nutzungsstatistik</h2>
-  <p>
-    Beim ersten Start fragt AUDIONEX, ob anonyme Nutzungsdaten gesendet werden dürfen. Diese
-    Zustimmung ist freiwillig; die App funktioniert ohne sie vollständig.
-  </p>
-  <p><strong>Anbieter:</strong> PostHog (PostHog Inc.), Datenhaltung in der EU-Region (Frankfurt am Main).</p>
-  <p><strong>Verarbeitete Daten, wenn du zustimmst:</strong></p>
-  <ul>
-    <li>eine zufällig erzeugte Installationskennung (keine Werbe-ID, kein Gerätefingerabdruck)</li>
-    <li>Ereignisse zur Bedienung der App, zum Beispiel „App geöffnet", „Bibliothek angesehen" und die Änderung dieser Einwilligung</li>
-    <li>technische Angaben: App-Version, Android-Version, Gerätemodell, Gerätesprache sowie die beim Verbindungsaufbau technisch übertragene IP-Adresse</li>
-    <li>Zeitpunkt der Ereignisse</li>
-  </ul>
-  <p>
-    <strong>Zweck:</strong> Erkennen, welche Funktionen genutzt werden und wo die App verbessert
-    werden muss. Es findet keine Werbung, kein Profiling und keine Weitergabe zu Werbezwecken statt.
-    <strong>Rechtsgrundlage:</strong> deine Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO.
-    <strong>Speicherdauer:</strong> höchstens 12 Monate, danach werden die Ereignisse gelöscht.
-  </p>
-  <p>
-    <strong>Widerruf:</strong> Du kannst die Einwilligung jederzeit ohne Angabe von Gründen per
-    E-Mail an t3chheim@outlook.de widerrufen. Wir löschen dann
-    die zu deiner Installationskennung gespeicherten Daten. Die Rechtmäßigkeit der bis zum Widerruf
-    erfolgten Verarbeitung bleibt davon unberührt.
-  </p>
-
-  <h2>5. Empfänger und Auftragsverarbeitung</h2>
-  <p>
-    Für die optionale Statistik setzen wir den Dienst PostHog als Auftragsverarbeiter ein; mit dem
-    Anbieter besteht ein Vertrag zur Auftragsverarbeitung nach Art. 28 DSGVO. Eine Datenhaltung
-    erfolgt in der EU. Eine Übermittlung in Drittländer findet nicht statt. Daten werden nicht
-    verkauft und nicht an Werbenetzwerke weitergegeben.
-  </p>
-
-  <h2>6. Deine Rechte</h2>
-  <p>Du hast nach der DSGVO das Recht auf:</p>
-  <ul>
-    <li>Auskunft über die zu dir verarbeiteten Daten (Art. 15)</li>
-    <li>Berichtigung unrichtiger Daten (Art. 16)</li>
-    <li>Löschung (Art. 17)</li>
-    <li>Einschränkung der Verarbeitung (Art. 18)</li>
-    <li>Datenübertragbarkeit (Art. 20)</li>
-    <li>Widerspruch gegen die Verarbeitung (Art. 21)</li>
-    <li>Beschwerde bei einer Datenschutz-Aufsichtsbehörde deines Bundeslandes</li>
-  </ul>
-  <p>
-    Für alle Anfragen genügt eine E-Mail an
-    t3chheim@outlook.de.
-  </p>
-
-  <h2>7. Kinder</h2>
-  <p>
-    AUDIONEX richtet sich nicht gezielt an Kinder. Es werden wissentlich keine Daten von Kindern
-    erhoben; die optionale Statistik ist standardmäßig aus und erfordert eine Zustimmung.
-  </p>
-
-  <h2>8. Änderungen dieser Erklärung</h2>
-  <p>
-    Wird die App um Funktionen erweitert, die Daten verarbeiten, wird diese Erklärung angepasst.
-    Es gilt jeweils die auf dieser Seite veröffentlichte Fassung mit dem oben genannten Stand.
-  </p>
-
-  <div class="en">
-    <h2>Privacy Policy (English summary)</h2>
-    <p>
-      AUDIONEX is an offline music player for Android. Your audio files, favorites, playlists,
-      folder selections, equalizer curves and settings stay on your device and are never uploaded.
-      There is no account and no sign-in.
+  <section class="hero">
+    <h1 data-de="Deine Musik. Dein Player." data-en="Your music. Your player.">Deine Musik. Dein Player.</h1>
+    <p class="lead"
+       data-de="AUDIONEX spielt deine lokale Musiksammlung ab – nach Ordnern sortiert, mit Cover-Ansicht, Equalizer und Wiedergabetasten auf dem Sperrbildschirm. Kein Konto, keine Werbung, kein Internet nötig."
+       data-en="AUDIONEX plays your local music library – sorted by folders, with cover view, equalizer and lock-screen controls. No account, no ads, no internet required.">
+      AUDIONEX spielt deine lokale Musiksammlung ab – nach Ordnern sortiert, mit Cover-Ansicht,
+      Equalizer und Wiedergabetasten auf dem Sperrbildschirm. Kein Konto, keine Werbung, kein
+      Internet nötig.
     </p>
-    <p>
-      Analytics is optional and off by default. Only if you accept the prompt on first launch does
-      the app send anonymous usage events to PostHog (EU region, Frankfurt): a random installation
-      ID, app events, app version, Android version, device model, device language, the IP address
-      technically required for the connection, and timestamps. No advertising, no profiling, no
-      sale of data. Retention is 12 months at most.
-    </p>
-    <p>
-      You can withdraw your consent at any time by e-mail to
-      t3chheim@outlook.de; the data linked to your installation
-      ID will then be deleted. You also have the rights of access, rectification, erasure,
-      restriction, portability and objection, and you may lodge a complaint with your local data
-      protection authority.
-    </p>
-    <p>
-      Permissions: reading audio files (to show and play your library), notifications (media
-      notification on the lock screen), foreground media playback service (background playback),
-      Bluetooth connect (only when you choose a Bluetooth output), internet (optional analytics only).
+    <div class="stand" data-de="Version 1.0 · Android 8.0 oder neuer · kostenlos" data-en="Version 1.0 · Android 8.0 or newer · free">Version 1.0 · Android 8.0 oder neuer · kostenlos</div>
+  </section>
+
+  <div class="actions" style="margin: 22px 0 6px;">
+    <a class="btn" href="download.html">
+      <span class="ico">▼</span>
+      <span data-de="Zum Download" data-en="Go to download">Zum Download</span>
+    </a>
+    <a class="btn secondary" href="screenshots.html">
+      <span data-de="Screenshots ansehen" data-en="View screenshots">Screenshots ansehen</span>
+    </a>
+  </div>
+
+  <h2 data-de="Was die App kann" data-en="What the app does">Was die App kann</h2>
+  <div class="cards">
+    <a class="card" href="screenshots.html">
+      <div class="kicker" data-de="Bibliothek" data-en="Library">Bibliothek</div>
+      <h3 data-de="Ordner, Titel, Alben" data-en="Folders, tracks, albums">Ordner, Titel, Alben</h3>
+      <p data-de="Deine Sammlung so, wie sie auf dem Gerät liegt: nach Ordnern, Künstlern, Alben und Genres – mit Suche und Favoriten."
+         data-en="Your collection the way it sits on the device: by folder, artist, album and genre – with search and favourites.">
+        Deine Sammlung so, wie sie auf dem Gerät liegt: nach Ordnern, Künstlern, Alben und
+        Genres – mit Suche und Favoriten.
+      </p>
+    </a>
+    <a class="card" href="screenshots.html">
+      <div class="kicker" data-de="Klang" data-en="Sound">Klang</div>
+      <h3 data-de="Equalizer und Spektrum" data-en="Equalizer and spectrum">Equalizer und Spektrum</h3>
+      <p data-de="Zehn Frequenzbänder, Presets für Rock, Jazz, Klassik und Bass – dazu ein Spektrum, das den Klang sichtbar macht."
+         data-en="Ten frequency bands, presets for rock, jazz, classical and bass – plus a spectrum that makes the sound visible.">
+        Zehn Frequenzbänder, Presets für Rock, Jazz, Klassik und Bass – dazu ein Spektrum, das
+        den Klang sichtbar macht.
+      </p>
+    </a>
+    <a class="card" href="installieren.html">
+      <div class="kicker" data-de="Alltag" data-en="Everyday">Alltag</div>
+      <h3 data-de="Sperrbildschirm und Bluetooth" data-en="Lock screen and Bluetooth">Sperrbildschirm und Bluetooth</h3>
+      <p data-de="Wiedergabe läuft im Hintergrund weiter, Tasten auf dem Sperrbildschirm, Bluetooth nur dann, wenn du es in der App einschaltest."
+         data-en="Playback keeps running in the background, controls on the lock screen, Bluetooth only when you enable it in the app.">
+        Wiedergabe läuft im Hintergrund weiter, Tasten auf dem Sperrbildschirm, Bluetooth nur
+        dann, wenn du es in der App einschaltest.
+      </p>
+    </a>
+  </div>
+
+  <div class="panel" style="margin-top: 26px;">
+    <p class="lead" style="margin: 0;"
+       data-de="AUDIONEX ist eine Testversion. Wenn dir etwas auffällt, das unrund läuft, schreib es auf – die Kontaktseite sagt dir, was hilft."
+       data-en="AUDIONEX is a test build. If something feels off, write it down – the contact page tells you what helps.">
+      AUDIONEX ist eine Testversion. Wenn dir etwas auffällt, das unrund läuft, schreib es auf –
+      die Kontaktseite sagt dir, was hilft.
     </p>
   </div>
 
   <footer>
-    AUDIONEX · Datenschutzerklärung · Stand 21. November 2026
+    <span data-de="AUDIONEX · Version 1.0" data-en="AUDIONEX · version 1.0">AUDIONEX · Version 1.0</span>
+    <a href="datenschutz.html" data-de="Datenschutzerklärung" data-en="Privacy policy">Datenschutzerklärung</a>
+    <a href="kontakt.html" data-de="Kontakt" data-en="Contact">Kontakt</a>
   </footer>
 </main>
+<script src="site.js"></script>
 </body>
 </html>
