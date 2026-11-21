@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AUDIONEX – Testversion</title>
+<meta name="description" content="Testversion der Android-App AUDIONEX herunterladen: Hi-Res-Audio-Player mit Equalizer, Bibliothek und Favoriten.">
+<style>
+  :root {
+    --ink: #05070c;
+    --card: rgba(255,255,255,0.045);
+    --line: rgba(255,255,255,0.12);
+    --ice: #eaf2fb;
+    --muted: #9fb0c6;
+    --blue: #2e9bff;
+    --cyan: #35e0ff;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    padding: 40px 20px 72px;
+    background:
+      radial-gradient(1100px 560px at 15% -10%, #12253c 0%, var(--ink) 62%),
+      radial-gradient(900px 500px at 100% 10%, rgba(53,224,255,0.10) 0%, transparent 60%),
+      var(--ink);
+    color: var(--ice);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    line-height: 1.65;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+  main { max-width: 900px; margin: 0 auto; }
+
+  header { margin-bottom: 34px; }
+  .brand {
+    font-size: 12px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--cyan);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: 38px;
+    line-height: 1.1;
+    margin: 10px 0 10px;
+    letter-spacing: -0.8px;
+    background: linear-gradient(100deg, #ffffff 10%, #9fd8ff 55%, var(--cyan) 95%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .lead { color: var(--muted); margin: 0; max-width: 620px; }
+  .stand { color: var(--muted); font-size: 13px; margin-top: 6px; }
+
+  .panel {
+    position: relative;
+    background: linear-gradient(160deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02));
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 24px;
+    margin: 22px 0;
+    box-shadow: 0 22px 60px -30px rgba(0,0,0,0.9), inset 0 1px 0 rgba(255,255,255,0.09);
+    backdrop-filter: blur(10px);
+  }
+
+  .download { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 17px 30px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: 0.2px;
+    color: #04121b;
+    background: linear-gradient(180deg, #7ef0ff 0%, var(--cyan) 42%, #17b6dd 100%);
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.7) inset,
+      0 -2px 8px rgba(0,40,60,0.35) inset,
+      0 14px 34px -10px rgba(53,224,255,0.55),
+      0 0 0 1px rgba(53,224,255,0.35);
+    transition: transform .16s ease, box-shadow .16s ease;
+  }
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.8) inset,
+      0 -2px 8px rgba(0,40,60,0.3) inset,
+      0 20px 44px -10px rgba(53,224,255,0.75),
+      0 0 0 1px rgba(53,224,255,0.5);
+  }
+  .btn:active { transform: translateY(0); }
+  .btn .ico { font-size: 19px; line-height: 1; }
+  .meta { display: grid; gap: 2px; font-size: 13px; color: var(--muted); }
+  .meta b { color: var(--ice); font-weight: 600; }
+
+  h2 {
+    font-size: 19px;
+    margin: 36px 0 14px;
+    letter-spacing: -0.2px;
+  }
+  h2::before {
+    content: "";
+    display: inline-block;
+    width: 7px; height: 7px;
+    margin-right: 10px;
+    border-radius: 2px;
+    background: var(--cyan);
+    box-shadow: 0 0 14px var(--cyan);
+    vertical-align: middle;
+  }
+
+  ol { padding-left: 22px; margin: 0; }
+  ol li { margin: 10px 0; padding-left: 4px; color: #dbe6f4; }
+  ol li strong { color: #fff; }
+
+  .warn {
+    border-left: 3px solid var(--blue);
+    background: rgba(46,155,255,0.10);
+    border-radius: 0 14px 14px 0;
+    padding: 14px 18px;
+    color: #cfe2f5;
+    font-size: 14.5px;
+    margin: 22px 0;
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  figure { margin: 0; }
+  .shot {
+    display: block;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: #0a1421;
+    box-shadow: 0 16px 40px -22px rgba(0,0,0,0.95), inset 0 1px 0 rgba(255,255,255,0.06);
+    transition: transform .18s ease, border-color .18s ease;
+  }
+  .shot:hover { transform: translateY(-3px); border-color: rgba(53,224,255,0.45); }
+  .shot img { display: block; width: 100%; height: auto; }
+  figcaption { color: var(--muted); font-size: 12.5px; margin-top: 8px; text-align: center; }
+
+  footer {
+    margin-top: 46px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 13px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+  }
+  a { color: var(--blue); }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--cyan); }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="brand">AUDIONEX</div>
+    <h1>Testversion für dein Handy</h1>
+    <p class="lead">
+      Hi-Res-Audio-Player für Android: Bibliothek nach Ordnern und Titeln, Cover-Ansicht,
+      Equalizer mit Presets, Favoriten und Wiedergabe im Sperrbildschirm.
+    </p>
+    <div class="stand">Version 1.0 · Release-Build vom 20. November 2026</div>
+  </header>
+
+  <div class="panel download">
+    <a class="btn" href="AUDIONEX-1.0-release.apk" download>
+      <span class="ico">▼</span> APK herunterladen
+    </a>
+    <div class="meta">
+      <span><b>16,7 MB</b> · signierter Release-Build</span>
+      <span>Android 8.0 oder neuer</span>
+      <span>kostenlos · ohne Konto · offline</span>
+    </div>
+  </div>
+
+  <h2>So installierst du sie</h2>
+  <ol>
+    <li>Auf dieser Seite den Button <strong>APK herunterladen</strong> antippen – der Download
+      landet in deinem Ordner „Downloads".</li>
+    <li>Die Datei in der Benachrichtigungsleiste oder in der Dateien-App antippen.</li>
+    <li>Android fragt, ob die App aus dieser Quelle installiert werden darf →
+      <strong>„Zulassen"</strong> bzw. „Einstellungen" → Schalter aktivieren → zurück → <strong>„Installieren"</strong>.</li>
+    <li>Beim ersten Start fragt Android nach Zugriff auf <strong>Musik und Audio</strong> –
+      ohne diese Freigabe bleibt die Bibliothek leer.</li>
+  </ol>
+
+  <div class="warn">
+    Diese Datei stammt nicht aus dem Play Store. Möglicherweise zeigt Android deshalb beim
+    Installieren einen Hinweis auf eine „unbekannte Quelle“ – das ist bei einer Testversion
+    normal und kein Fehler. Die App benötigt keine Konten, keine Anmeldung und kein Internet.
+  </div>
+
+  <h2>Ein Blick in die App</h2>
+  <div class="gallery">
+    <figure>
+      <a class="shot" href="shot-01-player.png"><img src="shot-01-player.png" alt="Player-Ansicht mit Cover, Spektrum und Wiedergabetasten" loading="lazy"></a>
+      <figcaption>Player</figcaption>
+    </figure>
+    <figure>
+      <a class="shot" href="shot-02-bibliothek.png"><img src="shot-02-bibliothek.png" alt="Bibliothek mit Ordnern, Titeln, Alben und Favoriten" loading="lazy"></a>
+      <figcaption>Bibliothek</figcaption>
+    </figure>
+    <figure>
+      <a class="shot" href="shot-03-titel.png"><img src="shot-03-titel.png" alt="Titel-Liste mit Cover und Suche" loading="lazy"></a>
+      <figcaption>Titel</figcaption>
+    </figure>
+    <figure>
+      <a class="shot" href="shot-04-equalizer.png"><img src="shot-04-equalizer.png" alt="Equalizer mit Frequenzbändern und Presets" loading="lazy"></a>
+      <figcaption>Equalizer</figcaption>
+    </figure>
+    <figure>
+      <a class="shot" href="shot-05-einstellungen.png"><img src="shot-05-einstellungen.png" alt="Einstellungen mit Sprache, Bluetooth und Datenschutz" loading="lazy"></a>
+      <figcaption>Einstellungen</figcaption>
+    </figure>
+  </div>
+
+  <h2>Feedback</h2>
+  <p class="lead">
+    Fehler, Wünsche oder etwas, das unrund läuft? Schreib an
+    <a href="mailto:t3chheim@outlook.de">t3chheim@outlook.de</a> – am hilfreichsten mit
+    Handymodell, Android-Version und einem Satz, was du gerade gemacht hast.
+  </p>
+
+  <footer>
+    <span>AUDIONEX · Testversion 1.0</span>
+    <a href="./">Datenschutzerklärung</a>
+    <a href="mailto:t3chheim@outlook.de">Kontakt</a>
+  </footer>
+</main>
+</body>
+</html>
